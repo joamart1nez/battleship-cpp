@@ -4,6 +4,22 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += \
-        main.cpp
+        barco.cpp \
+        juego.cpp \
+        jugador.cpp \
+        main.cpp \
+        tablero.cpp \
+        tableroataques.cpp \
+        tablerobarcos.cpp
 
-HEADERS +=
+HEADERS += \
+  barco.h \
+  info.h \
+  juego.h \
+  jugador.h \
+  lancha.h \
+  portaaviones.h \
+  submarino.h \
+  tablero.h \
+  tableroataques.h \
+  tablerobarcos.h
