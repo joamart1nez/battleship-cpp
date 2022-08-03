@@ -17,6 +17,7 @@ public:
   int **inicializarMatriz(int);
   bool cambiarCasilla(int, int, int);
   void dibujar();
+  bool verificarCoordenadas(int, int);
   virtual void info(){};
 };
 

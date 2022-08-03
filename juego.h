@@ -1,23 +1,32 @@
 #ifndef JUEGO_H
 #define JUEGO_H
+#include "crucero.h"
+#include "destructor.h"
 #include "info.h"
 #include "jugador.h"
 #include "lancha.h"
 #include "portaaviones.h"
+#include "randomrange.h"
 #include "submarino.h"
-#include <cstdlib>
 
 class Juego {
 private:
   class Jugador *jugador;
   class Jugador *IA;
+  RandomRange *randomRange;
   int dimensiones, maxBarcos;
   bool colocacionAleatoria;
   bool turno;
   bool debugMode;
   char *nombreJugador;
-  char *infoBarco =
-      "1:Lancha, 2:Crucero, 3:Submarino, 4:Destructor, 5:Portaaviones\n";
+  char *infoBarco = "\n1: Lancha (Tamanio = 1)\n"
+                    "2: Crucero (Tamanio = 3\n"
+                    "3: Submarino (Tamanio = 3)\n"
+                    "4: Destructor (Tamanio = 4)\n"
+                    "5: Portaaviones(Tamanio = 5)\n";
+  char *errorCargaDatos =
+      "\nError en algún parametro, favor de volver a cargar bien "
+      "los datos\n";
 
 public:
   Juego(bool = false);
@@ -30,9 +39,10 @@ public:
   // Colocacion de barcos
   bool colocarBarcosManual();
   bool colocarBarcosAleatorio(int);
-  bool colocarBarcos(class Jugador *, int, int, int, char);
+  bool colocarBarcos(class Jugador *, int, int, int, char &);
 
   // Ataques
+  bool verificarCoordenadas(int, int);
   bool atacarIA(int, int);
   bool atacarJugador();
 
@@ -41,32 +51,8 @@ public:
 
   // dibujado
   void limpiarPantalla();
-  void dibujar();
+  void dibujar(bool = true);
   void infoAtaques(bool, bool);
-
-  /*
-    1.iniciarConfiguracion()
-      cantidad de barcos, alto y ancho del tablero
-    2.colocarBarcosManual() o colocarBarcorAleatorio()
-
-    3.actualizar()
-      while(!isGameOverIA && !isGamerOverJugador){
-        bool ataqueExitoso;
-        if(turno::Jugador)
-          ataqueExitoso = atacarIA() {pedir (x,y)}
-        else
-          ataqueExitoso = atacarJugador() {aleatorio (x,y)}
-
-        if(ataqueExitoso && turno::Jugador) "Jugador acerto Atauqe"
-        if(ataqueExitoso && turno::IA) "IA acerto Atauqe"
-
-        moverLanchas() {busca todas las lanchas y las mueve}
-      }
-      if(isGameOverIA) "gano Jugador"
-      if(isGameOverJugador) "gano IA"
-
-
-  */
 };
 
 #endif // JUEGO_H

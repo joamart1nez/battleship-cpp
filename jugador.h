@@ -9,6 +9,7 @@ private:
   TableroAtaques *tableroAtaques;
   Jugador *oponente;
   char *nombre;
+  int dimensiones;
 
 public:
   Jugador(){};

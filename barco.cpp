@@ -23,13 +23,10 @@ int *Barco::inicializaCuerpo() {
 }
 
 bool Barco::golpe(int x) {
-  // si el golpe se hizo dentro del rango de su longitud
   if (x > k || this->cuerpo[x] == Codigo::Dañado)
     return false;
 
   char submarino[] = "Submarino";
-  // cambia la logica del submarino, no use polimorfismo porque no funcionaba
-  // (SOLUCIONAR)
   if (compararChar(this->getNombre(), submarino, 9) && x == 1) {
     for (int i = 0; i < k; ++i) {
       this->cuerpo[i] = Codigo::Dañado;

@@ -4,13 +4,23 @@ Jugador::Jugador(int dimensiones, int maxBarcos, char *nombre) {
   this->tableroBarcos = new TableroBarcos(dimensiones, maxBarcos);
   this->tableroAtaques = new TableroAtaques(dimensiones);
   this->nombre = nombre;
+  this->dimensiones = dimensiones;
 }
 
 void Jugador::dibujar(bool informacion) {
-  tableroAtaques->dibujar();
+  if (informacion) {
+    std::cout << "TABLERO DE ATAQUES\n";
+    tableroAtaques->dibujar();
+  }
+
+  std::cout << "\n";
+  std::cout << "TABLERO DE BARCOS\n";
   tableroBarcos->dibujar();
-  if (informacion)
+
+  if (informacion) {
+    std::cout << "\n";
     tableroBarcos->info();
+  }
 }
 
 bool Jugador::agregarBarco(Barco barco) {

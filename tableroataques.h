@@ -4,9 +4,8 @@
 
 class TableroAtaques : public Tablero {
 public:
-  TableroAtaques(){};
+  TableroAtaques();
   TableroAtaques(int);
-
   bool recibirAtaque(int, int);
 };
 
