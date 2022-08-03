@@ -63,32 +63,6 @@ bool TableroBarcos::sePuedeAgregar(Barco barco) {
       }
     }
   }
-  //  inicioI = (barco.getY() - 1) < 0 ? 0 : -1;
-  //  finalI = (barco.getY() + barco.getK()) > dimension - 1 ? 0 : 1;
-
-  //  for (int i = inicioI; i <= finalI; i++) {
-  //    if (barco.getOrientacion() == 'V') {
-  //      inicioJ = barco.getY() - 1 < 0 ? barco.getY() : barco.getY() - 1;
-  //      finalJ = (barco.getY() + barco.getK()) + 1 > dimension - 1
-  //                   ? barco.getY() + barco.getK()
-  //                   : barco.getY() + barco.getK() + 1;
-  //      for (int j = inicioJ; j < finalJ; j++) {
-  //        if (matriz[barco.getX() + i][j] != Codigo::Agua)
-  //          return false;
-  //      }
-  //    }
-
-  //    if (barco.getOrientacion() == 'H') {
-  //      inicioJ = barco.getX() - 1 < 0 ? barco.getX() : barco.getX() - 1;
-  //      finalJ = (barco.getX() + barco.getK()) + 1 > dimension - 1
-  //                   ? barco.getX() + barco.getK()
-  //                   : barco.getX() + barco.getK() + 1;
-  //      for (int j = inicioJ; j < finalJ; j++) {
-  //        if (matriz[j][barco.getY() + i] != Codigo::Agua)
-  //          return false;
-  //      }
-  //    }
-  //  }
   return true;
 }
 
