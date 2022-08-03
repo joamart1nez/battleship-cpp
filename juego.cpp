@@ -39,9 +39,27 @@ void Juego::inicializarConfiguracion() {
   if (colocacionAleatoria == 1) {
     int tamMaximoBarco = 5;
     /*
-    para un ratio dimensiones/maxBarcos < [0.7,..., 0.9] con dicha dimension
-    menor al doble del tamaño maximo de un barco (portaaviones = 5) se
+    para un ratio dimensiones/maxBarcos < 0.8 (ideal, para dar margen) con dicha
+    dimension menor al doble del tamaño maximo de un barco (portaaviones = 5) se
     recomienda aumentar el tamaño de la misma
+
+    Tabla de pruebas
+    Dimension | Cant Barcos | Ratio | Fallo
+    10          11            0.9     no
+    10          12            0.83    no
+    10          12                    si
+    10          13            0.7     si
+    10          13                    si
+    10          14            0.7     si (*)
+    11          12            0.84    no
+    11          14            0.78    no
+    11          15            0.73    si
+    15          21            0.71    no
+    20          27            0.74    no
+    20          28            0.71    no (*)
+
+    (*) indica que no solo tiene que tener un ratio mayor a 0.7 sino que tambien
+    la dimension del mapa debe ser mayor
     */
     while (dimensiones / maxBarcos < 0.8f || dimensiones < tamMaximoBarco * 2) {
       int opcion;
